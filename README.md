@@ -1,6 +1,7 @@
 # UART (Universal Asynchronous Receiver/Transmitter)
 
 **Overview**
+
 This project implements a UART (Universal Asynchronous Receiver/Transmitter) Transmitter and Receiver using Verilog/SystemVerilog.
 
 The design supports four selectable baud rates:
