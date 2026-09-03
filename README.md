@@ -5,26 +5,26 @@
 This project implements a UART (Universal Asynchronous Receiver/Transmitter) Transmitter and Receiver using Verilog/SystemVerilog.
 
 The design supports four selectable baud rates:
-9600 baud
-19200 baud
-38400 baud
-115200 baud
+- 9600 baud
+- 19200 baud
+- 38400 baud
+- 115200 baud
 
 The UART supports asynchronous serial communication using a frame consisting of an Idle state, Start bit, Data bits, Parity bit, and Stop bit.
 
 The project demonstrates UART transmission and reception, baud-rate generation, parity generation/checking, serial-to-parallel conversion, and parallel-to-serial conversion.
 
 **Features**
-UART Transmitter
-UART Receiver
-Four selectable baud rates:
+- UART Transmitter
+- UART Receiver
+- Four selectable baud rates:
 9600
 19200
 38400
 115200
-RTL implementation
-Simulation/testbench support
-UART Frame Format
+- RTL implementation
+- Simulation/testbench support
+- UART Frame Format
 
 The UART frame used in this design is:
 
@@ -56,14 +56,14 @@ Transmission Sequence
 
 The transmitter follows these steps:
 
-Remains in the IDLE state.
-Waits for a transmission request.
-Loads the 8-bit parallel data.
-Generates the Start bit (0).
-Transmits the 8 data bits LSB first.
-Generates the Parity bit.
-Generates the Stop bit (1).
-Returns to the IDLE state.
+- Remains in the IDLE state.
+- Waits for a transmission request.
+- Loads the 8-bit parallel data.
+- Generates the Start bit (0).
+- Transmits the 8 data bits LSB first.
+- Generates the Parity bit.
+- Generates the Stop bit (1).
+- Returns to the IDLE state.
 
 Conceptually:
 
@@ -98,16 +98,16 @@ Conceptually:
 The UART receiver converts the incoming serial data stream back into 8-bit parallel data.
 
 Reception Sequence
-The receiver continuously monitors the RX line.
-The RX line is normally HIGH during IDLE.
-A transition from HIGH to LOW indicates a possible Start bit.
-The receiver samples the incoming data at the appropriate baud-rate timing.
-The 8 data bits are received LSB first.
-The receiver samples the Parity bit.
-The receiver checks the received parity.
-The Stop bit is checked.
-The received 8-bit data is presented at the output.
-The receiver returns to the IDLE state.
+- The receiver continuously monitors the RX line.
+- The RX line is normally HIGH during IDLE.
+- A transition from HIGH to LOW indicates a possible Start bit.
+- The receiver samples the incoming data at the appropriate baud-rate timing.
+- The 8 data bits are received LSB first.
+- The receiver samples the Parity bit.
+- The receiver checks the received parity.
+- The Stop bit is checked.
+- The received 8-bit data is presented at the output.
+- The receiver returns to the IDLE state.
 
 Conceptually:
 
@@ -165,11 +165,11 @@ Baud Counter ≈ Fclk / Baud Rate
 
 For example, with a 50 MHz system clock:
 
-Baud Rate	Approx. Clock Cycles/Bit
-9600	                 5208
-19200	                 2604
-38400	                 1302
-115200	                  434
+- Baud Rate	Approx. Clock Cycles/Bit
+- 9600	                        5208
+- 19200	                 2604
+- 38400	                 1302
+- 115200	                  434
 
 The exact counter values depend on the system clock frequency and the baud-rate-generation architecture used in the design.
 
@@ -190,16 +190,27 @@ The Idle state is the line state between frames and is normally HIGH.
 The testbench can verify:
 
 Correct Idle state
+
 Correct Start bit
+
 Correct 8-bit data transmission
+
 LSB-first transmission
+
 Correct parity generation
+
 Correct parity checking
+
 Correct Stop bit
+
 Correct baud-rate timing
+
 Correct baud-rate selection
+
 TX/RX data matching
+
 Parity-error detection
+
 Expected Result
 
 **Applications**
@@ -226,16 +237,26 @@ Hardware testing and validation
 Possible improvements include:
 
 Support for configurable data width
+
 Configurable even/odd parity
+
 Multiple stop-bit configurations
+
 FIFO implementation
+
 Framing-error detection
+
 Overrun-error detection
+
 Break detection
+
 FPGA hardware testing
+
 PC-based UART communication
+
 Additional baud rates
-Conclusion
+
+**Conclusion**
 
 This project implements a configurable UART Transmitter and Receiver supporting 9600, 19200, 38400, and 115200 baud rates.
 
