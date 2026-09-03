@@ -22,7 +22,6 @@ Four selectable baud rates:
 19200
 38400
 115200
-
 RTL implementation
 Simulation/testbench support
 UART Frame Format
