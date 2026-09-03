@@ -45,6 +45,7 @@ The UART line remains in the Idle HIGH state when no data is being transmitted.
 Both the transmitter and receiver must use the same baud-rate configuration for reliable communication.
 
 **Block Diagram**
+
 <img width="457" height="427" alt="image" src="https://github.com/user-attachments/assets/8ee1c73d-313a-4ba2-9e4d-44e36818e14c" />
 
 
@@ -165,11 +166,11 @@ Baud Counter ≈ Fclk / Baud Rate
 
 For example, with a 50 MHz system clock:
 
-- Baud Rate	Approx. Clock Cycles/Bit
-- 9600	                        5208
-- 19200	                 2604
-- 38400	                 1302
-- 115200	                  434
+- Baud Rate	 (Approx. Clock Cycles/Bit)
+- 9600	                        (5208)
+- 19200	                 (2604)
+- 38400	                 (1302)
+- 115200	                  (434)
 
 The exact counter values depend on the system clock frequency and the baud-rate-generation architecture used in the design.
 
