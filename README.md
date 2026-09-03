@@ -46,23 +46,8 @@ The UART line remains in the Idle HIGH state when no data is being transmitted.
 Both the transmitter and receiver must use the same baud-rate configuration for reliable communication.
 
 **Block Diagram**
-                         UART SYSTEM
-                              │
-              ┌───────────────┴───────────────┐
-              │                               │
-              ▼                               ▼
-      ┌───────────────┐               ┌───────────────┐
-      │ UART          │               │ UART          │
-      │ Transmitter   │               │ Receiver      │
-      └───────┬───────┘               └───────▲───────┘
-              │                               │
-              │ TX                            │ RX
-              └────────── Serial Line ────────┘
-                              │
-                    ┌─────────┴─────────┐
-                    │ Baud Rate         │
-                    │ Generator         │
-                    └───────────────────┘
+<img width="457" height="427" alt="image" src="https://github.com/user-attachments/assets/8ee1c73d-313a-4ba2-9e4d-44e36818e14c" />
+
 
 **UART Transmitter**
 
@@ -164,13 +149,8 @@ The receiver recalculates/checks the parity and compares it with the received pa
 
 If the parity does not match, a parity error can be generated.
 
-Data → Parity Generator → Parity Bit → TX
+<img width="380" height="188" alt="image" src="https://github.com/user-attachments/assets/3e52598d-8b08-4fd9-aff4-4acd7d7c0ca8" />
 
-RX → Data → Parity Checker
-                  │
-                  ├── Correct → Continue
-                  │
-                  └── Error → Parity Error
 
 
 The exact parity type (even or odd) should match the RTL implementation. If this project uses even parity, the parity bit is selected so that the total number of 1s in the data + parity is even.
@@ -186,11 +166,11 @@ Baud Counter ≈ Fclk / Baud Rate
 
 For example, with a 50 MHz system clock:
 
-Baud Rate	Approx.    Clock Cycles/Bit
+Baud Rate	Approx. Clock Cycles/Bit
 9600	                 5208
 19200	                 2604
 38400	                 1302
-115200	                434
+115200	                  434
 
 The exact counter values depend on the system clock frequency and the baud-rate-generation architecture used in the design.
 
@@ -202,20 +182,8 @@ For an 8-bit data frame with one start bit, one parity bit, and one stop bit, th
 
 The Idle state is the line state between frames and is normally HIGH.
 
-Repository Structure
-UART/
-│
-├── rtl/
-│   ├── uart_tx.v
-│   ├── uart_rx.v
-│   └── baud_generator.v
-│   └── uart_top_module.v
-│
-├── tb/
-│   └── uart_tb.v
-│
-├── README.md
-└── LICENSE
+<img width="228" height="377" alt="image" src="https://github.com/user-attachments/assets/811949f4-68e1-4b73-86d2-4bdd3c735855" />
+
 
 
 
@@ -237,16 +205,24 @@ Expected Result
 
 **Applications**
 
+
 UART communication is widely used in:
 
 FPGA-to-PC communication
+
 FPGA-to-microcontroller communication
+
 Embedded systems
+
 Debugging and serial monitoring
+
 Sensor interfaces
+
 Peripheral communication
+
 Hardware testing and validation
-Future Improvements
+
+**Future Improvements**
 
 Possible improvements include:
 
